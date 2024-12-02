@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <!-- Title dan Description untuk SEO -->
+  <title>JKT48Connect - Official</title>
+  <meta name="description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Dapatkan update real-time tentang aktivitas member JKT48 hanya di sini!">
+  <meta name="keywords" content="JKT48, live JKT48, JKT48Connect, jadwal theater JKT48, event JKT48, news JKT48, lineup JKT48, live showroom JKT48">
+  <meta name="author" content="Valzyy">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph untuk tampilan media sosial -->
+  <meta property="og:title" content="JKT48Connect - Official">
+  <meta property="og:description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Update informasi seputar aktivitas JKT48 hanya di sini!">
+  <meta property="og:url" content="https://live.valzyofc.my.id/home">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+  <meta property="og:image:alt" content="Banner JKT48Connect untuk JKT48">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JKT48Connect - Update Live JKT48, Theater, Event, & Berita Terbaru">
+  <meta name="twitter:description" content="Temukan jadwal live, theater, event, lineup, showroom, dan berita terbaru JKT48 hanya di JKT48Connect. Semua update terbaru JKT48 ada di sini!">
+  <meta name="twitter:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+  <meta name="twitter:image:alt" content="Banner JKT48Connect untuk JKT48">
+  <meta name="twitter:site" content="@valzyy"> <!-- Ganti jika memiliki akun Twitter -->
+    <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/home.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
+    }
+  </style>
+</head>
+
+<body>
+    <div class="container">
+    <div class="mobile-content">
+
+  <!--=============== NAVBAR ===============-->
+      <nav class="nav">
+         <ul class="nav__list">
+            <li>
+               <a href="/home" class="nav__link active-link">
+                  <i class="ri-home-smile-2-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="/member" class="nav__link">
+                  <i class="ri-user-line"></i>
+               </a>
+            </li>
+
+            <!-- Expand list -->
+            <li>
+               <button class="nav__expand" id="nav-expand">
+                  <i class="ri-add-line nav__expand-icon" id="nav-expand-icon"></i>
+               </button>
+
+               <ul class="nav__expand-list" id="nav-expand-list">
+                  <li>
+                     <a href="https://discord.gg/kke7VpNPfr" class="nav__expand-link">
+                        <i class="ri-discord-line"></i>
+                        <span>Discord</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="/replay" class="nav__expand-link">
+                        <i class="ri-replay-5-line"></i>
+                        <span>Replay</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="/theater" class="nav__expand-link">
+                        <i class="ri-building-line"></i>
+                        <span>Theater</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         
+            <li>
+               <a href="/event" class="nav__link">
+                  <i class="ri-calendar-event-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="/sausenkyo2024" class="nav__link">
+                  <i class="ri-vip-crown-line"></i>
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+      <div class="hidr">
+
+        <h1>Home</h1>
+        <div class="logo">
+          <img src="https://files.catbox.moe/puclfa.png" alt="Logo">
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <!-- Banner Section -->
+      <div class="banner">
+        <img id="banner-img" src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_webp,q_80,ar_4.5,w_900,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/v1725119914/assets/img/raj4al9rdjxgnaqbrhcj.png" alt="Banner">
+      </div>
+
+      <script>
+        // Daftar URL gambar banner
+        const bannerImages = [
+        'https://8030.us.kg/file/d43ZN3xqpEAH.jpg',
+        'https://8030.us.kg/file/rTKhR9MYlTa8.jpg',
+        'https://8030.us.kg/file/zBUK4VsxP62x.jpg',
+        'https://8030.us.kg/file/RMtguxEQCt0t.jpg',
+        'https://8030.us.kg/file/yC7F2SDlawX8.jpg'
+    ];
+
+        let currentIndex = 0;
+
+        function changeBannerImage() {
+          currentIndex = (currentIndex + 1) % bannerImages.length;
+          document.getElementById('banner-img').src = bannerImages[currentIndex];
+        }
+
+        // Ubah gambar setiap 5 detik (5000 ms)
+        setInterval(changeBannerImage, 5000);
+      </script>
+
+
+      <!-- Live Section -->
+      <div class="live-section">
+        <h2>
+          <span><span class="live-dot"></span> Live</span>
+          <span id="member-count">0 Member</span>
+        </h2>
+        <div class="card-container" id="streams">
+          <!-- Dynamic content will be inserted here -->
+        </div>
+      </div>
+      <!-- Video Modal -->
+      <div id="videoModal" class="modal">
+        <div class="modal-content"> <span class="close-btn" onclick="closeModal()">&times;</span> <video id="streamVideo" controls>
+            <source id="videoSource" type="video/mp4"> Your browser does not support the video tag.
+          </video> </div>
+      </div>
+      </br>
+    <div class="kkash">
+        <div id="name" class="kkash2">
+            Halo,
+            <span class="wave">👋</span>
+        </div>
+        <div class="subkkash2">
+            Selamat datang di website JKT48Connect
+        </div>
+        <div class="content">
+            <div>
+                <div id="oshi">Oshi Kamu Hillary Abigail Ya?? 🤔 Berikut ini motivasi spesial untuk kamu:</div>
+                <br/>
+                Selalu dukung perjalanan oshi kamu di JKT48Connect! <br/>
+                <div id="oshi2">Terus beri semangat kepada ${oshi} dan JKT48! <br/></div>
+                Jadilah bagian dari cerita mereka yang penuh inspirasi! <br/>
+                Jangan pernah menyerah untuk mendukung impian! 
+            </div>
+            <img id="avatar" src="" alt="Photo of Oshi">
+        </div>
+        <div class="kkash3">
+            <img 
+                src="https://files.catbox.moe/osiq36.png" 
+                alt="JKT48Connect kkash3">
+        </div>
+        <div class="kkash5-group">
+            <kkash5 class="reset-btn" onclick="resetForm()">Reset</kkash5>
+        </div>
+    </div>
+
+  <div class="kks">
+    <div class="ssjk">
+      <h1>Recent Live</h1>
+      <a href="#">More</a>
+    </div>
+    <div id="recent-lives"></div>
+  </div>
+
+
+
+<div class="youtube-section">
+  <div class="youtube-header">
+    <i class="fab fa-youtube"></i>
+    <h1>JKT48 Youtube</h1>
+    <button class="btn-more" onclick="window.location.href='https://youtube.com/@jkt48'">More</button>
+  </div>
+  <div class="video-list" id="video-list"></div>
+</div>
+
+
+      <div class="kontol">
+        <div class="hsder">
+          <i class="fas fa-birthday-cake"></i>
+          <h2>Ultah selanjutnya</h2>
+        </div>
+        <div id="birthdays" class="profile-grid">
+          <!-- Dynamic content will be inserted here -->
+        </div>
+      </div>
+
+      <div id="news-container">
+        <!-- Dinamis Konten akan di-inject di sini -->
+      </div>
+      <!-- Popup for news detail -->
+      <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-content" id="popup-content">
+          <div class="close-popup" id="close-popup">X</div>
+          <h2 id="popup-title"></h2>
+          <p id="popup-date"></p>
+          <div id="popup-detail"></div>
+        </div>
+      </div>
+
+        <div class="blob-container">
+          <div class="zigzag-header">
+            <h2>Next live</h2>
+          </div>
+          <div id="nextlive"></div> <!-- The container for live streams -->
+        </div>
+        <br/>
+      <div class="rekor">
+        <div class="rekorhead">
+          <i class="fas fa-award">
+          </i>
+          Rekor Showroom
+        </div>
+        <div class="record">
+          <img alt="Logo of JKT48" height="50" src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_webp,q_80,ar_1,g_face:center,w_80,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/s--rRdgtH_E--/c_fill,w_150/v1697402288/assets/img/jkt48poster1_pemrgm.jpg" width="50" />
+          <div class="details">
+            <div class="title">
+              Penonton terbanyak
+            </div>
+            <div class="subtitle">
+              JKT48
+            </div>
+          </div>
+          <div class="value">
+            300.867 Penonton
+          </div>
+        </div>
+        <div class="record">
+          <img alt="Photo of Fidly Immanda Azzahra" height="50" src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_webp,q_80,ar_1,g_face:center,w_80,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/v1659596860/jkt48/stage48/Fidly%2520Immanda%2520Azzahra.jpg" width="50" />
+          <div class="details">
+            <div class="title">
+              Live terlama
+            </div>
+            <div class="subtitle">
+              Fidly Immanda Azzahra
+            </div>
+          </div>
+          <div class="value">
+            12 Jam 58 Menit 23 Detik
+          </div>
+        </div>
+        <div class="record">
+          <img alt="Photo of Feni Fitriyanti" height="50" src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_webp,q_80,ar_1,g_face:center,w_80,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/v1709325875/d9f6s4yarknd1eka905m.jpg" width="50" />
+          <div class="details">
+            <div class="title">
+              Gift terbanyak
+            </div>
+            <div class="subtitle">
+              Feni Fitriyanti
+            </div>
+          </div>
+          <div class="value">
+            4.301.338G
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="gobbledygook-container">
+        <div class="nonsense-header">
+          <i class="fas fa-calendar-alt"></i>
+          Other Schedule
+        </div>
+        <div id="eventsContainer"></div> <!-- This will hold the events -->
+      </div>
+      <!-- Schedule Section -->
+      <div class="schedule-section">
+        <h2>Theater Schedule</h2>
+        <div class="schedule-container" id="schedule-list">
+          <!-- Dynamic schedule content will be inserted here -->
+        </div>
+      </div>
+      <!-- Social Media Section -->
+      <div class="social-media-section">
+        <h2>Follow Us</h2>
+        <div class="social-media-links">
+          <a href="https://twitter.com/yourprofile" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png" alt="Twitter">
+            Twitter
+          </a>
+          <a href="https://facebook.com/yourprofile" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook.png" alt="Facebook">
+            Facebook
+          </a>
+          <a href="https://instagram.com/yourprofile" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram.png" alt="Instagram">
+            Instagram
+          </a>
+          <a href="https://youtube.com/yourprofile" target="_blank">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube.png" alt="YouTube">
+            YouTube
+          </a>
+        </div>
+      </div>
+
+     
+      <div class="desktop-message" style="display: none; text-align: center; font-size: 20px; color: red; margin-top: 50px; padding: 20px; background-color: #f0f0f0; border: 2px solid #ff0000; border-radius: 10px;">
+        <h2 style="font-size: 24px; margin: 0;">Mobile Only</h2>
+        <p style="margin: 10px 0;">This page is only accessible on mobile devices.</p>
+      </div>
+       <div class="spacer"></div>
+     <script>
+        function redirectTo(url) {
+          window.location.href = url; // Redirect to the specified URL
+        
+      </script>
+
+<script src="./script/home-scroll.js"></script>
+<script src="./script/home-all.js"></script>
+<script src="./script/home-recentLive.js"></script>
+<script src="./script/home-userData.js"></script>
+<script>
+  // Cek jika URL berisi "index.html" atau "about.html"
+  if (window.location.pathname.endsWith("home.html")) {
+    // Mengganti URL dari index.html menjadi root domain "/"
+    window.history.replaceState(null, "", window.location.pathname.replace("home.html", "home"));
+  }
+</script>
+</body>
+
+</html>
