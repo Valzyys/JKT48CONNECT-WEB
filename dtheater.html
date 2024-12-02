@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Title dan Description untuk SEO -->
+<title>JKT48Connect - Official</title>
+<meta name="description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Dapatkan update real-time tentang aktivitas member JKT48 hanya di sini!">
+<meta name="keywords" content="JKT48, live JKT48, JKT48Connect, jadwal theater JKT48, event JKT48, news JKT48, lineup JKT48, live showroom JKT48">
+<meta name="author" content="Valzyy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph untuk tampilan media sosial -->
+<meta property="og:title" content="JKT48Connect - Official">
+<meta property="og:description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Update informasi seputar aktivitas JKT48 hanya di sini!">
+<meta property="og:url" content="https://live.valzyofc.my.id/home">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta property="og:image:alt" content="Banner JKT48Connect untuk JKT48">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JKT48Connect - Update Live JKT48, Theater, Event, & Berita Terbaru">
+<meta name="twitter:description" content="Temukan jadwal live, theater, event, lineup, showroom, dan berita terbaru JKT48 hanya di JKT48Connect. Semua update terbaru JKT48 ada di sini!">
+<meta name="twitter:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta name="twitter:image:alt" content="Banner JKT48Connect untuk JKT48">
+<meta name="twitter:site" content="@valzyy"> <!-- Ganti jika memiliki akun Twitter -->
+
+<!-- Favicon -->
+<link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
+
+      <link rel="stylesheet" href="assets/css/dtheater.css"
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <i class="fas fa-arrow-left" onclick="history.back()"></i>
+            <h1 id="header">Loading...</h1>
+        </div>
+        <div class="content">
+            <!-- Banner for mobile -->
+            <img id="mobile-banner" class="mobile-only" src="default-banner.jpg" alt="Banner">
+            <!-- Poster for desktop -->
+            <img id="desktop-poster" class="desktop-only" src="default-poster.jpg" alt="Poster">
+        </div>
+        <div class="details">
+            <h2 id="title">
+                Loading... 
+                <img src="default-team.jpg" alt="Badge">
+            </h2>
+            <p id="description">Loading show details...</p>
+            <div class="info" id="info"></div>
+            <div class="buttons">
+                <button class="btn offline" id="offlineTicketBtn">Offline Ticket</button>
+                <button class="btn online" id="onlineTicketBtn">Online Ticket</button>
+            </div>
+        </div>
+        <div class="member-list">
+            <h3>Daftar Member</h3>
+            <div class="members" id="members">
+                <!-- Members dynamically populated here -->
+            </div>
+        </div>
+    </div>
+<script>
+  // Cek jika URL berisi "index.html" atau "about.html"
+  if (window.location.pathname.endsWith("dtheater.html")) {
+    // Mengganti URL dari index.html menjadi root domain "/"
+    window.history.replaceState(null, "", window.location.pathname.replace("dtheater.html", "dtheater"));
+  }
+</script>
+<script src="./script/dtheater.js"></script>
+</body>
+</html>
