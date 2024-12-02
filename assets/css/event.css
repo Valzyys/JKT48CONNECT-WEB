@@ -1,0 +1,831 @@
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+        }
+        .header i {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .event-list {
+            margin-top: 20px;
+        }
+        .event-item {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .event-item img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover;
+        }
+        .event-details {
+            padding: 10px;
+        }
+        .event-details h2 {
+            font-size: 18px;
+            margin: 10px 0 5px;
+        }
+        .event-details p {
+            font-size: 14px;
+            margin: 5px 0;
+            color: #b0b0b0;
+        }
+        .event-badge {
+            position: absolute;
+            background-color: #ff3b30;
+            color: #ffffff;
+            padding: 5px 15px;
+            border-radius: 5px;
+            top: 10px;
+            left: 10px;
+            font-size: 15px;
+        }
+        .event-members {
+            background-color: #3b82f6;
+            color: #ffffff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            float: right;
+        }
+                
+        .Lastshow {
+            padding: 20px;
+            text-align: center; /* Center text for no shows */
+        }
+        .headatas {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .headatas h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .headatas a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+.card {
+    background-color: #080414;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 220px; /* Menentukan lebar kartu */
+    position: relative; /* Menyimpan posisi relatif untuk penempatan elemen anak */
+}
+
+.card img {
+    width: 100%;
+    height: 300px; /* Menentukan tinggi gambar untuk orientasi portrait */
+    object-fit: cover; /* Memastikan gambar tetap sesuai tanpa merusak aspek rasio */
+    border-top-left-radius: 10px; /* Menambahkan border-radius pada bagian atas */
+    border-top-right-radius: 10px; /* Menambahkan border-radius pada bagian atas */
+}
+
+.card-content {
+    padding: 10px;
+    flex-grow: 1; /* Membuat konten kartu menempati ruang yang tersisa */
+}
+
+.card-content .date {
+    position: absolute; /* Menggunakan posisi absolute untuk menempatkan label di dalam gambar */
+    top: 10px; /* Jarak dari atas gambar */
+    left: 10px; /* Jarak dari kiri gambar */
+    background-color: #e74c3c; /* Warna latar belakang untuk label tanggal */
+    color: #ffffff; /* Warna teks untuk label tanggal */
+    padding: 5px 10px; /* Padding untuk label */
+    border-radius: 5px; /* Border-radius untuk label */
+    font-size: 12px; /* Ukuran font untuk label */
+    width: auto; /* Membuat lebar otomatis sesuai dengan teks */
+    height: 20px; /* Menetapkan tinggi tetap untuk label */
+    display: flex; /* Menggunakan flex untuk memastikan konten terpusat */
+    align-items: center; /* Vertikal center untuk teks */
+    justify-content: center; /* Horizontal center untuk teks */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan untuk efek 3D */
+    z-index: 1; /* Memastikan label tampil di atas gambar */
+}
+
+.card-content h2 {
+    font-size: 2px; /* Mengurangi ukuran font judul */
+    margin:5px 0; /* Menyesuaikan margin */
+    white-space: nowrap; /* Memastikan teks dalam satu baris */
+    overflow: hidden; /* Memotong teks yang terlalu panjang */
+    text-overflow: ellipsis; /* Menambahkan elipsis jika teks terpotong */
+}
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .no-shows {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .no-shows img {
+            width: 200px; /* Ukuran logo */
+            height: auto;
+            margin-bottom: 10px;
+        }
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background: rgba(40, 40, 40, 0.5); /* Semi-transparent for glass effect */
+    backdrop-filter: blur(10px); /* Blur for glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 10px 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+    position: fixed;
+    bottom: 20px; 
+    left: 20px; 
+    right: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for glass look */
+}
+
+.nav-item {
+    flex: 1; 
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-item:hover {
+    transform: scale(1.1); /* Slight scaling on hover */
+}
+
+.home-icon {
+    position: relative;
+    z-index: 1; 
+}
+
+.home-icon i {
+    font-size: 28px; /* Keep the original icon size */
+}
+
+.nav-item p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Links styles */
+.nav-item a {
+    color: #ffffff; /* Normal state color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Align icon and text */
+    flex-direction: column; /* Stack icon on top of text */
+    align-items: center; /* Center align items */
+    outline: none; /* Remove outline on focus */
+}
+
+/* Remove the blue color when clicked or focused */
+.nav-item a:focus,
+.nav-item a:active {
+    outline: none; /* No outline */
+    color: #ff3b30; /* Set color to red when focused or active */
+}
+
+/* Hover state */
+.nav-item a:hover {
+    color: #ff3b30; /* Change color on hover */
+}
+.skeleton {
+    background-color: #2e2e2e;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+/* Skeleton loader */
+.skeleton-card {
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 220px; /* Sesuaikan ukuran skeleton */
+    position: relative;
+    display: inline-block;
+    width: 100%; /* Responsive width */
+}
+
+.skeleton-card::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+.peler amat {
+    width: 100%;
+    max-width: 445px; /* Memperbesar max-width */
+    margin: 15px auto; /* Menambahkan sedikit margin */
+    background-color: #1e1e1e;
+    border-radius: 12px; /* Membuat border-radius lebih besar */
+    padding: 15px; /* Memperbesar padding */
+}
+.peler amat bejirlah {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1e90ff;
+    padding-bottom: 10px; /* Menambah padding di bagian bawah */
+    margin-bottom: 15px; /* Memperbesar margin bawah */
+}
+.peler amat bejirlah i {
+    font-size: 22px; /* Memperbesar ikon */
+    color: #1e90ff;
+    margin-right: 10px; /* Menambah jarak antara ikon dan teks */
+}
+.peler amat bejirlah h1 {
+    font-size: 22px; /* Memperbesar ukuran font */
+    margin: 0;
+}
+.event {
+    display: flex;
+    align-items: center;
+    padding: 8px 0; /* Memperbesar padding */
+    border-bottom: 1px solid #444;
+}
+.event:last-child {
+    border-bottom: none;
+}
+.date {
+    width: 80px; /* Memperbesar lebar date box */
+    text-align: center;
+}
+.date span {
+    display: block;
+}
+.date .day {
+    font-size: 16px; /* Memperbesar ukuran font tanggal */
+    font-weight: bold;
+}
+.date .month {
+    font-size: 12px; /* Memperbesar ukuran font nama bulan */
+    color: #aaa;
+}
+.details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.details img {
+    width: 50px; /* Memperbesar ukuran gambar badge */
+    height: 20px; /* Memperbesar tinggi gambar badge */
+    margin-right: 8px; /* Menambah jarak antara gambar dan teks */
+    display: block;
+}
+.details .info {
+    font-size: 14px; /* Memperbesar ukuran font informasi event */
+}
+.footer {
+    text-align: right;
+    font-size: 12px; /* Memperbesar ukuran font di footer */
+    color: #aaa;
+    margin-top: 15px; /* Memperbesar margin atas di footer */
+}
+
+/* Skeleton loader styles */
+.skeleton {
+    background-color: #444;
+    background-image: linear-gradient(90deg, #444, #555, #444);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+.skeleton-text {
+    width: 100%;
+    height: 18px; /* Memperbesar tinggi skeleton text */
+    margin: 8px 0; /* Menambah jarak skeleton text */
+}
+.skeleton-img {
+    width: 50px; /* Memperbesar skeleton gambar */
+    height: 20px; /* Memperbesar tinggi skeleton gambar */
+    margin-right: 10px; /* Menambah margin kanan */
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+        #video-container {
+            display: none; /* Mulai dengan video tersembunyi */
+            width: 400px; 
+            height: 225px; 
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Bayangan lebih gelap */
+            position: fixed; /* Posisi tetap untuk pop-up */
+            top: 50%; /* Pusat vertikal */
+            left: 50%; /* Pusat horizontal */
+            transform: translate(-50%, -50%); /* Pusatkan elemen */
+            z-index: 1000; /* Pastikan di atas elemen lain */
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #playlist {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 400px; /* Batasi tinggi kontainer playlist */
+            overflow-y: auto; /* Tambahkan scroll vertikal */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .video-item {
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1); /* Latar belakang transparan */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Bayangan lebih halus */
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .video-item:hover {
+            transform: translateY(-5px); /* Efek hover pada card */
+        }
+        .video-thumbnail {
+            width: 120px;
+            height: 90px;
+            border-radius: 5px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        }
+        .video-details {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .video-details h3 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .video-details p {
+            margin: 5px 0 10px;
+            color: #b3b3b3;
+        }
+        .video-item button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #ffffff; /* Teks putih pada tombol */
+            transition: background-color 0.3s;
+        }
+        .video-item .play-now {
+            background-color: #1E90FF; /* Warna tombol Play Now (biru muda) */
+        }
+        .video-item .play-next {
+            background-color: #8A2BE2; /* Warna tombol Play Next (ungu) */
+        }
+        .video-item button:hover {
+            opacity: 0.8; /* Efek hover pada tombol */
+        }
+        #now-playing {
+            margin-top: 20px;
+            color: #ffffff;
+        }
+        #close-video {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+              .gobbledygook-container {
+            padding: 20px;
+        }
+        .nonsense-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .nonsense-header i {
+            margin-right: 10px;
+        }
+        .whimsical-event {
+            background-color: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .whimsical-event i {
+            background-color: #3b82f6;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        .wacky-date {
+            font-size: 14px;
+            color: #a0a0a0;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .silly-label {
+            margin-right: 10px;
+        }
+        .quirky-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+                .blob-container {
+            background-color: #2c2c2c;
+            border-radius: 15px;
+            padding: 30px;
+            width: auto;
+            margin: auto;
+        }
+        .zigzag-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .zigzag-header::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 30px;
+            background-color: #ff4d4d;
+            margin-right: 15px;
+            border-radius: 3px;
+        }
+        .zigzag-header h2 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .fuzzy-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+        }
+        .fuzzy-item img {
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
+            margin-right: 15px;
+        }
+        .squiggle-info {
+            flex-grow: 1;
+        }
+        .squiggle-info h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .squiggle-info p {
+            margin: 8px 0 0;
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+        .beep-button {
+            background-color: #ff4d4d;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .beep-button i {
+            margin-right: 8px;
+        }
+        .twiddle-divider {
+            height: 1.5px;
+            background-color: #3c3c3c;
+            margin: 15px 0;
+        }
+        .space {
+            height: 100px; /* Adjust height for vertical space */
+            width: 100%; /* Full width */
+        }
+/* Glassmorphism Header */
+.header {
+    background: rgba(0, 0, 0, 0.4); /* Transparent background */
+    backdrop-filter: blur(12px); /* Glassmorphism effect */
+    
+    color: #fff;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Logo Styling */
+.logo img {
+    width: 100px; /* Smaller logo */
+    height: auto;
+    margin-right: 25px; /* Adjust this to move the logo slightly left */
+}
+
+/* Styling for the left side content (icon and title) */
+.header h1 {
+    margin: 0;
+    flex-grow: 1; /* Allow title to take remaining space */
+}
+
+/* Icon styling */
+.header i {
+    margin-right: 15px;
+}
+.spacer-line {
+    width: 100%;
+    height: 2px;
+    
+    margin: 20px 0; /* Adjust the space above and below */
+}
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat Alternates", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --tiny-font-size: .625rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: hsl(225, 100%, 99%);
+  background-color:  #121212;
+  color: hsl(225, 8%, 65%);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  background-color:  #121212;
+      
+}
+
+/* Remove the property of 100vh, when inserting its content */
+.section {
+  height: 100vh;
+  padding-block: 2.5rem;
+}
+
+.section h1 {
+  font-size: var(--biggest-font-size);
+  color: hsl(225, 12%, 12%);
+  text-align: center;
+}
+
+/*=============== NAVBAR ===============*/
+.nav {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  background-color: hsl(225, 12%, 12%);
+  width: 88%;
+  margin-inline: auto;
+  box-shadow: 0 2px 16px hsla(228, 95%, 4%, .1);
+  padding: 1rem 1.75rem;
+  border-radius: 4rem;
+  z-index: var(--z-fixed);
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__link {
+  color: hsl(225, 8%, 65%);
+  font-size: 1.5rem;
+  transition: color .4s;
+}
+
+.nav__link:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+/*=============== EXPAND LIST ===============*/
+.nav__expand {
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  background-color: hsl(225, 95%, 56%);;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav__expand-icon {
+  display: inline-block;
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  transition: transform .4s;
+}
+
+.nav__expand-list {
+  position: absolute;
+  top: -4.5rem;
+  left: 0;
+  right: 0;
+  background-color: hsl(225, 12%, 12%);
+  box-shadow: 0 2px 16px hsla(228, 95%, 4%, .1);
+  width: max-content;
+  margin-inline: auto;
+  padding: .5rem 1.5rem;
+  border-radius: 4rem;
+  display: flex;
+  column-gap: 2rem;
+  z-index: -1;
+  overflow: hidden;
+  transform: translateY(5rem) scale(.1);
+  transition: transform .5s cubic-bezier(.5, 1.8, .4, .8);
+}
+
+.nav__expand-list li {
+  transform: translateY(-3rem);
+  transition: transform .4s;
+}
+
+.nav__expand-list li:nth-child(1) {
+  transition-delay: .2s;
+}
+
+.nav__expand-list li:nth-child(2) {
+  transition-delay: .3s;
+}
+
+.nav__expand-list li:nth-child(3) {
+  transition-delay: .4s;
+}
+
+.nav__expand-link {
+  color: hsl(225, 8%, 65%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color .4s;
+}
+
+.nav__expand-link i {
+  font-size: 1.5rem;
+}
+
+.nav__expand-link span {
+  font-size: var(--tiny-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__expand-link:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+/* Show list */
+.show-list,
+.show-list li{
+  transform: translateY(0);
+}
+
+/* Rotate icon */
+.rotate-icon {
+  transform: rotate(135deg);
+}
+
+/* Active link */
+.active-link {
+  color: hsl(0, 0%, 100%);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For medium devices */
+@media screen and (min-width: 450px) {
+  .nav {
+    width: 350px;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+}
