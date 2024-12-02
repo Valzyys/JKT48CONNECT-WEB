@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tags for SEO and Social Media -->
+    <title></title>
+    <!-- Title dan Description untuk SEO -->
+<title>JKT48Connect - Official</title>
+<meta name="description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Dapatkan update real-time tentang aktivitas member JKT48 hanya di sini!">
+<meta name="keywords" content="JKT48, live JKT48, JKT48Connect, jadwal theater JKT48, event JKT48, news JKT48, lineup JKT48, live showroom JKT48">
+<meta name="author" content="Valzyy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph untuk tampilan media sosial -->
+<meta property="og:title" content="JKT48Connect - Official">
+<meta property="og:description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Update informasi seputar aktivitas JKT48 hanya di sini!">
+<meta property="og:url" content="https://live.valzyofc.my.id/home">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta property="og:image:alt" content="Banner JKT48Connect untuk JKT48">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JKT48Connect - Update Live JKT48, Theater, Event, & Berita Terbaru">
+<meta name="twitter:description" content="Temukan jadwal live, theater, event, lineup, showroom, dan berita terbaru JKT48 hanya di JKT48Connect. Semua update terbaru JKT48 ada di sini!">
+<meta name="twitter:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta name="twitter:image:alt" content="Banner JKT48Connect untuk JKT48">
+<meta name="twitter:site" content="@valzyy"> <!-- Ganti jika memiliki akun Twitter -->
+
+<!-- Favicon -->
+<link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1e;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 40px; /* Increased padding */
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding-bottom: 40px; /* Increased padding */
+            border-bottom: 1px solid #333;
+        }
+        .header i {
+            font-size: 40px; /* Increased icon size */
+            margin-right: 20px; /* Increased margin */
+        }
+        .header h1 {
+            font-size: 36px; /* Increased font size */
+            margin: 0;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 40px; /* Increased margin */
+        }
+        .content img {
+            width: 100%;
+            height: auto;
+            max-width: 960px; /* Increased max width for mobile banner */
+            margin-bottom: 40px; /* Increased margin */
+            border-radius: 10px;
+        }
+        .content .desktop-poster {
+            display: none; /* Hide desktop poster */
+        }
+        .content .mobile-banner {
+            display: block; /* Show mobile banner */
+        }
+        .details h2 {
+            font-size: 48px; /* Increased title font size */
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .details h2 .badge {
+            background-color: #ff3b30;
+            color: #fff;
+            padding: 4px 12px; /* Increased padding */
+            border-radius: 6px; /* Increased border radius */
+            font-size: 24px; /* Increased badge font size */
+            margin-left: 20px; /* Increased margin */
+        }
+        .details p {
+            margin: 20px 0; /* Increased margin */
+            font-size: 30px; /* Increased font size */
+            line-height: 1.6; /* Increased line height */
+        }
+        .details .info {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px; /* Increased margin */
+        }
+        .details .info div {
+            margin-bottom: 20px; /* Increased margin */
+        }
+        .details .info div i {
+            margin-right: 10px; /* Increased margin */
+        }
+        .details .info div span {
+            font-size: 20px; /* Increased font size */
+        }
+        .details .buttons {
+            margin-top: 40px; /* Increased margin */
+            display: flex;
+            flex-direction: column;
+        }
+        .details .buttons .btn {
+            padding: 40px 40px; /* Increased padding */
+            border: none;
+            border-radius: 14px; /* Increased border radius */
+            font-size: 37px; /* Increased font size */
+            cursor: pointer;
+            margin-bottom: 20px; /* Increased margin */
+        }
+        .details .buttons .btn.offline {
+            background-color: #007aff;
+            color: #fff;
+        }
+        .details .buttons .btn.online {
+            background-color: #ff3b30;
+            color: #fff;
+            height: 70px; /* Increased height */
+        }
+        .member-list {
+            margin-top: 80px; /* Increased margin */
+        }
+        .member-list h3 {
+            font-size: 28px; /* Increased font size */
+            margin-bottom: 40px; /* Increased margin */
+        }
+        .member-list .members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Distribute members evenly */
+        }
+        .member-list .member {
+            width: 23%; /* Increased width for 3 members per row */
+            text-align: center;
+            margin-bottom: 40px; /* Increased margin */
+        }
+        .member-list .member img {
+            width: 220px; /* Increased size for member images */
+            height: 250px; /* Increased size for member images */
+            border-radius: 6px; /* Increased border radius */
+        }
+        .member-list .member span {
+            display: block;
+            margin-top: 10px; /* Increased margin */
+            font-size: 30px; /* Increased font size */
+        }
+        .dot-line {
+            border-top: 4px dotted #333; /* Increased border width */
+            margin-top: 40px; /* Increased margin */
+            padding-top: 40px; /* Increased padding */
+        }
+                .sigma {
+            text-align: left;
+                }
+                        .link-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .link-header i {
+            color: #ffd700;
+            margin-right: 8px;
+            font-size: 28px;
+        }
+        .link-header span {
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<div class="header">
+    <a href="javascript:history.back()" style="text-decoration: none; color: inherit;">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+    <h1 id="header"></h1>
+</div>
+
+        <div class="content">
+            <img id="mobile-banner" class="mobile-banner" alt="Banner of Show" src="default-banner.jpg">
+            <img id="desktop-poster" class="desktop-poster" alt="Poster of Show" src="default-image.jpg">
+            <div class="details">
+                <h2 id="title">Loading... <img id="badge" src="default-badge.png" style="width: 48px; height: 120px; vertical-align: middle;"/></h2>
+                <p id="description">
+                    Loading show details...
+                </p>
+                <div class="info" id="info">
+                    <!-- Show information will be populated here -->
+                </div>
+                <div class="buttons">
+                          <div class="link-header">
+            <i class="fas fa-globe"></i>
+            <span>Official Link</span>
+        </div>
+                    <button class="btn offline" id="offlineTicketBtn" data-url="">JKT48 Official Web</button>
+                </div>
+            </div>
+        </div>
+        <div class="seitansai" id="seitansai">
+            <!-- Seitansai member details will be populated here -->
+        </div>
+        <div class="member-list">
+            <h3>Daftar Member</h3>
+            <div class="members" id="members">
+                <!-- Participating members will be listed here -->
+            </div>
+        </div>
+        <div class="dot-line"></div>
+    </div>
+
+<script>
+    async function fetchTheaterData(theaterId) {
+        try {
+            const response = await fetch(`https://api.crstlnz.my.id/api/theater/${theaterId}`);
+            const data = await response.json();
+
+            const show = data.shows[0];
+            const teamImgUrl = `https://jkt48.com${show.team.img}`;
+            const titleElement2 = document.getElementById('header');
+            titleElement2.innerText = show.title;
+
+// Update meta tags dynamically
+            document.title = show.title;
+    document.querySelector('meta[name="description"]').setAttribute('content', show.setlist.description);
+        document.querySelector('meta[property="og:title"]').setAttribute('content', show.title);
+        document.querySelector('meta[property="og:description"]').setAttribute('content', show.setlist.description);
+        document.querySelector('meta[property="og:image"]').setAttribute('content', show.setlist.banner);    
+            // Update title and badge
+            const titleElement = document.getElementById('title');
+            titleElement.innerHTML = `
+                ${show.title} 
+                <img id="badge" src="${teamImgUrl}" style="width: 100px; height: 40px; vertical-align: middle; margin-left: 20px; border-radius: 4px;"/>
+            `;
+
+            // Update images
+            const mobileBanner = document.getElementById('mobile-banner');
+            const desktopPoster = document.getElementById('desktop-poster');
+            mobileBanner.src = show.setlist.banner;
+            desktopPoster.src = show.setlist.poster;
+
+            // Update document title
+            document.title = `${show.title} - ${show.setlist.description}`;
+
+            // Update description
+            const descriptionElement = document.getElementById('description');
+            descriptionElement.innerHTML = `<i class="fas fa-book" style="color: orange;"></i> ${show.setlist.description}`;
+
+            // Update info
+            const infoElement = document.getElementById('info');
+            const showDate = new Date(show.date).toLocaleDateString('id-ID', { 
+                day: '2-digit', 
+                month: 'long', 
+                year: 'numeric' 
+            });
+            const showTime = new Date(show.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            infoElement.innerHTML = `
+                <p><i class="fas fa-calendar-alt"></i> Tanggal Show: ${showDate}</p>
+                <p><i class="fas fa-clock"></i> Waktu Show: ${showTime}</p>
+            `;
+
+            const entranceUrl = show.showroomTheater.entrance_url;
+            const offlineTicketBtn = document.getElementById('offlineTicketBtn');
+            
+            offlineTicketBtn.setAttribute('data-url', show.url);
+            
+            offlineTicketBtn.addEventListener('click', () => {
+                window.location.href = offlineTicketBtn.getAttribute('data-url');
+            });
+
+            const seitansaiElement = document.getElementById('seitansai');
+            if (show.seitansai.length > 0) {
+                const seitansaiMember = show.seitansai[0];
+                seitansaiElement.innerHTML = `
+                    <div class="dot-line"></div>
+                    <img src="${seitansaiMember.img}" alt="Seitansai Member" style="width: 220px; height: 250px; border-radius: 3px; margin-right: 20px;">
+                    <div class="details">
+                        <p>This show is seitansai for <span style="color: #ff3b30;">${seitansaiMember.name}</span></p>
+                    </div>
+                    <div class="dot-line"></div>
+                `;
+            } else {
+                seitansaiElement.innerHTML = '<p>No seitansai member for this show.</p>';
+            }
+
+// Update members
+const membersElement = document.getElementById('members');
+membersElement.innerHTML = ''; // Clear existing members
+
+if (show.members && show.members.length > 0) {
+    // Populate members if available
+    show.members.forEach(member => {
+        const memberDiv = document.createElement('div');
+        memberDiv.classList.add('member');
+        
+        // Check if member data is available, else use placeholders
+        const memberName = member.name || '?????';
+        const memberImg = member.img || 'https://res.cloudinary.com/doig4w6cm/image/fetch/f_webp,q_80,ar_0.8,g_face:center,w_180,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/v1696626938/assets/img/default-anime-avatar_ms7sea.webp';
+        
+        memberDiv.innerHTML = `
+            <img src="${memberImg}" alt="${memberName}">
+            <span>${memberName}</span>
+        `;
+        membersElement.appendChild(memberDiv);
+    });
+} else {
+    // Show 16 placeholders if members array is empty
+    for (let i = 0; i < 16; i++) {
+        const placeholderDiv = document.createElement('div');
+        placeholderDiv.classList.add('member');
+        placeholderDiv.innerHTML = `
+            <img src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_webp,q_80,ar_0.8,g_face:center,w_180,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/v1696626938/assets/img/default-anime-avatar_ms7sea.webp" alt="Placeholder Member">
+            <span>?????</span>
+        `;
+        membersElement.appendChild(placeholderDiv);
+    }
+}
+
+        } catch (error) {
+            console.error('Error fetching theater data:', error);
+        }
+    }
+
+    function getTheaterIdFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('id');
+    }
+
+    window.onload = () => {
+        const theaterId = getTheaterIdFromURL();
+        if (theaterId) {
+            fetchTheaterData(theaterId);
+        } else {
+            document.getElementById('description').innerHTML = '<p>Please provide a theater ID in the URL.</p>';
+        }
+    };
+</script>
+<script>
+  // Cek jika URL berisi "index.html" atau "about.html"
+  if (window.location.pathname.endsWith("rtheater.html")) {
+    // Mengganti URL dari index.html menjadi root domain "/"
+    window.history.replaceState(null, "", window.location.pathname.replace("rtheater.html", "rtheater"));
+  }
+</script>
+</body>
+</html>
