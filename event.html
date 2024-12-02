@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+	<meta name="google-site-verification" content="u73lkCW7VyOB3VyQwZzsvLgfRN_IkWOCFUlvBR8G5WA" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Title dan Description untuk SEO -->
+<title>JKT48Connect - Jadwal Live, Event, Theater & News Terbaru JKT48</title>
+<meta name="description" content="JKT48Connect adalah platform resmi untuk melihat jadwal live JKT48, event terbaru, lineup, dan update berita member JKT48. Dapatkan semua informasi terkini JKT48 di sini.">
+<meta name="keywords" content="JKT48, jadwal JKT48, JKT48Connect, jadwal teater JKT48, event JKT48, berita JKT48, live JKT48, lineup JKT48, showroom JKT48">
+<meta name="author" content="Valzyy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph untuk tampilan media sosial -->
+<meta property="og:title" content="JKT48Connect - Jadwal Live, Event, Theater & News Terbaru JKT48">
+<meta property="og:description" content="Nikmati akses ke jadwal live JKT48, event, lineup, theater, dan berita terbaru dari member JKT48. Semua update penting ada di JKT48Connect!">
+<meta property="og:url" content="https://live.valzyofc.my.id/home">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta property="og:image:alt" content="Banner resmi JKT48Connect untuk jadwal dan event JKT48">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JKT48Connect - Update Live JKT48, Event, Theater, & Berita Terkini">
+<meta name="twitter:description" content="Dapatkan semua jadwal dan berita terbaru dari JKT48 termasuk event, live show, theater, dan showroom hanya di JKT48Connect!">
+<meta name="twitter:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta name="twitter:image:alt" content="Banner resmi JKT48Connect dengan update terkini JKT48">
+<meta name="twitter:site" content="@valzyy"> <!-- Ganti jika ada akun Twitter resmi -->
+
+<!-- Favicon -->
+<link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
+<!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+      <link rel="stylesheet" href="assets/css/event.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+</head>
+<body>
+   <!--=============== NAVBAR ===============-->
+      <nav class="nav">
+         <ul class="nav__list">
+            <li>
+               <a href="/home" class="nav__link active-link">
+                  <i class="ri-home-smile-2-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="/member" class="nav__link">
+                  <i class="ri-user-line"></i>
+               </a>
+            </li>
+
+            <!-- Expand list -->
+            <li>
+               <button class="nav__expand" id="nav-expand">
+                  <i class="ri-add-line nav__expand-icon" id="nav-expand-icon"></i>
+               </button>
+
+               <ul class="nav__expand-list" id="nav-expand-list">
+                  <li>
+                     <a href="https://discord.gg/kke7VpNPfr" class="nav__expand-link">
+                        <i class="ri-discord-line"></i>
+                        <span>Discord</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="/replay" class="nav__expand-link">
+                        <i class="ri-replay-5-line"></i>
+                        <span>Replay</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="/theater" class="nav__expand-link">
+                        <i class="ri-building-line"></i>
+                        <span>Theater</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         
+            <li>
+               <a href="/event" class="nav__link">
+                  <i class="ri-calendar-event-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="/sausenkyo2024" class="nav__link">
+                  <i class="ri-vip-crown-line"></i>
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+<div class="header">
+    <i class="fas fa-arrow-left"></i>
+    <h1>Event</h1>
+    <div class="logo">
+        <img src="https://files.catbox.moe/puclfa.png" alt="Logo">
+    </div>
+</div>
+
+<div class="space"></div>
+        <h2>Theater selanjutnya</h2>
+<div id="schedule-list" class="event-list">
+    <!-- Skeleton Placeholder -->
+    <div class="skeleton" style="width: 100%; height: 200px;"></div>
+    <div class="skeleton" style="width: 60%; height: 20px; margin: 10px 0;"></div>
+    <div class="skeleton" style="width: 40%; height: 20px; margin-bottom: 20px;"></div>
+</div>
+
+    </div>
+          <div class="Lastshow">
+        <div class="headatas">
+            <h1>
+                <i class="fas fa-ticket-alt"></i>
+                Theater Sebelumnya
+            </h1>
+            <a href="/theater">Selengkapnya</a>
+        </div>
+<div class="grid" id="past-schedule-list">
+    <!-- Skeleton loader for past schedule -->
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+</div>
+
+
+        <div class="no-shows" id="no-shows" style="display: none;">
+            <img src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_auto,q_80,w_640,c_fill/https://res.cloudinary.com/haymzm4wp/image/upload/assets/svg/web/space_copy.svg" alt="No Shows Available" />
+            <p>Tidak ada show sebelumnya</p>
+        </div>
+    </div>
+    <div class="gobbledygook-container">
+        <div class="nonsense-header">
+            <i class="fas fa-calendar-alt"></i>
+            Other Schedule
+        </div>
+        <div id="eventsContainer"></div> <!-- This will hold the events -->
+    </div>
+    
+        <div class="blob-container">
+        <div class="zigzag-header">
+            <h2>Now Live</h2>
+        </div>
+        <div id="streams"></div> <!-- The container for live streams -->
+    </div>
+<div class="space"></div>
+<script src="./script/event.js"></script>
+<script>
+        // Cek jika URL berisi "index.html" atau "about.html"
+        if (window.location.pathname.endsWith("event.html")) {
+            // Mengganti URL dari index.html menjadi root domain "/"
+            window.history.replaceState(null, "", window.location.pathname.replace("event.html", "event"));
+        }
+    </script>
+</body>
+</html>
