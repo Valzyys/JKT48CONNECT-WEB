@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <!-- Title dan Description untuk SEO -->
+<title>JKT48Connect - Official</title>
+<meta name="description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Dapatkan update real-time tentang aktivitas member JKT48 hanya di sini!">
+<meta name="keywords" content="JKT48, live JKT48, JKT48Connect, jadwal theater JKT48, event JKT48, news JKT48, lineup JKT48, live showroom JKT48">
+<meta name="author" content="Valzyy">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph untuk tampilan media sosial -->
+<meta property="og:title" content="JKT48Connect - Official">
+<meta property="og:description" content="JKT48Connect adalah platform terbaik untuk melihat jadwal live JKT48, event, theater, news, lineup, dan showroom terbaru. Update informasi seputar aktivitas JKT48 hanya di sini!">
+<meta property="og:url" content="https://live.valzyofc.my.id/home">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta property="og:image:alt" content="Banner JKT48Connect untuk JKT48">
+<meta property="og:locale" content="id_ID">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JKT48Connect - Update Live JKT48, Theater, Event, & Berita Terbaru">
+<meta name="twitter:description" content="Temukan jadwal live, theater, event, lineup, showroom, dan berita terbaru JKT48 hanya di JKT48Connect. Semua update terbaru JKT48 ada di sini!">
+<meta name="twitter:image" content="https://pomf2.lain.la/f/30fzjyy9.jpg">
+<meta name="twitter:image:alt" content="Banner JKT48Connect untuk JKT48">
+<meta name="twitter:site" content="@valzyy"> <!-- Ganti jika memiliki akun Twitter -->
+
+<!-- Favicon -->
+<link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
+<<link rel="stylesheet" href="assets/css/replay.css">
+</head>
+ <!--=============== NAVBAR ===============-->
+      <nav class="nav">
+         <ul class="nav__list">
+            <li>
+               <a href="/home" class="nav__link active-link">
+                  <i class="ri-home-smile-2-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="/member" class="nav__link">
+                  <i class="ri-user-line"></i>
+               </a>
+            </li>
+
+            <!-- Expand list -->
+            <li>
+               <button class="nav__expand" id="nav-expand">
+                  <i class="ri-add-line nav__expand-icon" id="nav-expand-icon"></i>
+               </button>
+
+               <ul class="nav__expand-list" id="nav-expand-list">
+                  <li>
+                     <a href="https://discord.gg/kke7VpNPfr" class="nav__expand-link">
+                        <i class="ri-discord-line"></i>
+                        <span>Discord</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="/replay" class="nav__expand-link">
+                        <i class="ri-replay-5-line"></i>
+                        <span>Replay</span>
+                     </a>
+                  </li>
+      
+                  <li>
+                     <a href="/theater" class="nav__expand-link">
+                        <i class="ri-building-line"></i>
+                        <span>Theater</span>
+                     </a>
+                  </li>
+               </ul>
+            </li>
+         
+            <li>
+               <a href="/event" class="nav__link">
+                  <i class="ri-calendar-event-line"></i>
+               </a>
+            </li>
+
+            <li>
+               <a href="/sausenkyo2024" class="nav__link">
+                  <i class="ri-vip-crown-line"></i>
+               </a>
+            </li>
+         </ul>
+      </nav>
+
+ 
+<body>
+    <div class="player-container">
+        <div class="video-list" id="videoList">Loading videos...</div>
+    </div>
+<!-- Modal untuk pemutaran video -->
+    <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="closeModal">&times;</span>
+        <iframe id="youtubePlayer" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+<script>
+    function redirectTo(url) {
+        window.location.href = url; // Redirect to the specified URL
+    }
+</script>
+<script src="./script/replay.js"></script>
+<script>
+  // Cek jika URL berisi "index.html" atau "about.html"
+  if (window.location.pathname.endsWith("replay.html")) {
+    // Mengganti URL dari index.html menjadi root domain "/"
+    window.history.replaceState(null, "", window.location.pathname.replace("replay.html", "replay"));
+  }
+</script>
+</body>
+</html>
