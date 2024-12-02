@@ -1,0 +1,469 @@
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1e;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background-color: #2c2c2e;
+        }
+        .header i {
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header .vote-button {
+            background: linear-gradient(90deg, #ff7eb3, #ff65a3);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .header .vote-button:hover {
+            background: linear-gradient(90deg, #ff65a3, #ff7eb3);
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            flex: 1;
+        }
+        .card {
+            background-color: #2c2c2e;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+        .card h2 {
+            margin: 10px 0;
+            font-size: 20px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .card .watch-button {
+            background-color: #ff3b30;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .card .watch-button:hover {
+            background-color: #d62c21;
+        }
+        .card .watch-button i {
+            margin-right: 10px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .modal-content {
+            margin: 10% auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+            background-color: #2c2c2e;
+            border-radius: 15px;
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #ff3b30;
+            text-decoration: none;
+        }
+        iframe {
+            width: 100%;
+            height: 400px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 20px;
+            }
+            .header .vote-button {
+                padding: 8px 16px;
+                font-size: 16px;
+            }
+            .card h2 {
+                font-size: 18px;
+            }
+            iframe {
+                height: 300px;
+            }
+        /* Glassmorphism Header */
+.hidr {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Center the hidr text and reduce its size */
+.hidr h1 {
+    margin: 0;
+    flex-grow: 1;
+    font-size: 20px; /* Reduced font size */
+    text-align: center; /* Center the text */
+}
+
+/* Icon styling */
+.hidr i {
+    margin-right: 15px;
+}
+
+/* Vote Button Styling */
+.vote-button {
+    background: linear-gradient(90deg, #ff7eb3, #ff65a3);
+            border: none;
+            border-radius: 25px;
+            padding: 3px 30px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+    margin-right: 25px; /* Move button left */
+}
+
+.vote-button:hover {
+    background-color: #0288d1;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    background: rgba(40, 40, 40, 0.5); /* Semi-transparent for glass effect */
+    backdrop-filter: blur(10px); /* Blur for glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    padding: 10px 20px; 
+    border-radius: 15px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); 
+    position: fixed;
+    bottom: 20px; 
+    left: 20px; 
+    right: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border for glass look */
+}
+
+.nav-item {
+    flex: 1; 
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.nav-item:hover {
+    transform: scale(1.1); /* Slight scaling on hover */
+}
+
+.home-icon {
+    position: relative;
+    z-index: 1; 
+}
+
+.home-icon i {
+    font-size: 28px; /* Keep the original icon size */
+}
+
+.nav-item p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Links styles */
+.nav-item a {
+    color: #ffffff; /* Normal state color */
+    text-decoration: none; /* Remove underline */
+    display: flex; /* Align icon and text */
+    flex-direction: column; /* Stack icon on top of text */
+    align-items: center; /* Center align items */
+    outline: none; /* Remove outline on focus */
+}
+
+/* Remove the blue color when clicked or focused */
+.nav-item a:focus,
+.nav-item a:active {
+    outline: none; /* No outline */
+    color: #ff3b30; /* Set color to red when focused or active */
+}
+
+/* Hover state */
+.nav-item a:hover {
+    color: #ff3b30; /* Change color on hover */
+}
+/* Spacer section styling */
+.spacer {
+    height: 50px; /* Adjust height as needed */
+    background-color: #1c1c1e; /* Matches the background color */
+}
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat Alternates", sans-serif;
+  --biggest-font-size: 2.5rem;
+  --tiny-font-size: .625rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: hsl(225, 100%, 99%);
+  background-color: #1c1c1e;
+  color: hsl(225, 8%, 65%);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1120px;
+  margin-inline: 1.5rem;
+  background-color: #1c1c1e;
+      
+}
+
+/* Remove the property of 100vh, when inserting its content */
+.section {
+  height: 100vh;
+  padding-block: 2.5rem;
+}
+
+.section h1 {
+  font-size: var(--biggest-font-size);
+  color: hsl(225, 12%, 12%);
+  text-align: center;
+}
+
+/*=============== NAVBAR ===============*/
+.nav {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  background-color: hsl(225, 12%, 12%);
+  width: 88%;
+  margin-inline: auto;
+  box-shadow: 0 2px 16px hsla(228, 95%, 4%, .1);
+  padding: 1rem 1.75rem;
+  border-radius: 4rem;
+  z-index: var(--z-fixed);
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__link {
+  color: hsl(225, 8%, 65%);
+  font-size: 1.5rem;
+  transition: color .4s;
+}
+
+.nav__link:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+/*=============== EXPAND LIST ===============*/
+.nav__expand {
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  background-color: hsl(225, 95%, 56%);;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.nav__expand-icon {
+  display: inline-block;
+  color: hsl(0, 0%, 100%);
+  font-size: 1.5rem;
+  transition: transform .4s;
+}
+
+.nav__expand-list {
+  position: absolute;
+  top: -4.5rem;
+  left: 0;
+  right: 0;
+  background-color: hsl(225, 12%, 12%);
+  box-shadow: 0 2px 16px hsla(228, 95%, 4%, .1);
+  width: max-content;
+  margin-inline: auto;
+  padding: .5rem 1.5rem;
+  border-radius: 4rem;
+  display: flex;
+  column-gap: 2rem;
+  z-index: -1;
+  overflow: hidden;
+  transform: translateY(5rem) scale(.1);
+  transition: transform .5s cubic-bezier(.5, 1.8, .4, .8);
+}
+
+.nav__expand-list li {
+  transform: translateY(-3rem);
+  transition: transform .4s;
+}
+
+.nav__expand-list li:nth-child(1) {
+  transition-delay: .2s;
+}
+
+.nav__expand-list li:nth-child(2) {
+  transition-delay: .3s;
+}
+
+.nav__expand-list li:nth-child(3) {
+  transition-delay: .4s;
+}
+
+.nav__expand-link {
+  color: hsl(225, 8%, 65%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color .4s;
+}
+
+.nav__expand-link i {
+  font-size: 1.5rem;
+}
+
+.nav__expand-link span {
+  font-size: var(--tiny-font-size);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__expand-link:hover {
+  color: hsl(0, 0%, 100%);
+}
+
+/* Show list */
+.show-list,
+.show-list li{
+  transform: translateY(0);
+}
+
+/* Rotate icon */
+.rotate-icon {
+  transform: rotate(135deg);
+}
+
+/* Active link */
+.active-link {
+  color: hsl(0, 0%, 100%);
+}
+@media screen and (min-width: 450px) {
+  .nav {
+    width: 350px;
+} 
+}
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+}
+}
+}
