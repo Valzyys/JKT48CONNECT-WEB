@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sousenkyo 2024</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet"/>
+    <!--=============== REMIXICONS ===============-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+<<link rel="stylesheet" href="assets/css/sausenkyo.css">
+</head>
+<body>
+<div class="hidr">
+    <i class="fas fa-arrow-left" onclick="location.href='/'"></i>
+    <h1>Sousenkyo 2024</h1>
+    <button class="vote-button" onclick="location.href='https://ssk.jkt48.com/2024/id/vote'">Vote</button>
+</div>
+
+<!-- Spacer Section -->
+<div class="spacer"></div>
+    <div class="container" id="videoContainer">
+        <!-- Dynamic cards will be injected here -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="videoPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+<!-- Spacer Section -->
+<div class="spacer"></div>
+  <!--=============== NAVBAR ===============-->
+  <nav class="nav">
+    <ul class="nav__list">
+      <li>
+        <a href="/home" class="nav__link active-link">
+          <i class="ri-home-smile-2-line"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="/member" class="nav__link">
+          <i class="ri-user-line"></i>
+        </a>
+      </li>
+
+      <!-- Expand list -->
+      <li>
+        <button class="nav__expand" id="nav-expand">
+          <i class="ri-add-line nav__expand-icon" id="nav-expand-icon"></i>
+        </button>
+
+        <ul class="nav__expand-list" id="nav-expand-list">
+          <li>
+            <a href="https://discord.gg/kke7VpNPfr" class="nav__expand-link">
+              <i class="ri-discord-line"></i>
+              <span>Discord</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/replay" class="nav__expand-link">
+              <i class="ri-replay-5-line"></i>
+              <span>Replay</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="/theater" class="nav__expand-link">
+              <i class="ri-building-line"></i>
+              <span>Theater</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="/event" class="nav__link">
+          <i class="ri-calendar-event-line"></i>
+        </a>
+      </li>
+
+      <li>
+        <a href="/sausenkyo2024" class="nav__link">
+          <i class="ri-vip-crown-line"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <script>
+    // Cek jika URL berisi "index.html" atau "about.html"
+    if (window.location.pathname.endsWith("sausenkyo.html")) {
+      // Mengganti URL dari index.html menja di root domain "/"
+      window.history.replaceState(null, "", window.location.pathname.replace("sausenkyo.html", "sausenkyo2024"));
+    }
+  </script>
+<script src="./script/sausenkyo.js">./script/sausenkyo.js</script>
+</body>
+</html>
