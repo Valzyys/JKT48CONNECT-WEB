@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKT48Connect - Live Stream</title>
+    <meta name="description" content="Platform terbaik untuk melihat live stream JKT48. Selalu terupdate dengan jadwal dan informasi terkini.">
+    <link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/css/idn.css">
+</head>
+<body>
+
+    <!-- Video Content -->
+    <div class="content">
+        <h2 id="title"><i class="fas fa-star"></i> Judul Live</h2>
+        <hr/>
+        <video id="video" controls autoplay>
+            <source id="videoSource" src="-" type="application/vnd.apple.mpegurl">
+            Browser Anda tidak mendukung pemutaran video ini.
+        </video>
+        <hr/>
+    </div>
+
+    <!-- Live List Section -->
+    <div class="container" id="streams">
+        <!-- Dynamic content will load here -->
+    </div>
+
+<script src="./script/live.js"></script>
+<script>
+  // Cek jika URL berisi "index.html" atau "about.html"
+  if (window.location.pathname.endsWith("idn.html")) {
+    // Mengganti URL dari index.html menjadi root domain "/"
+    window.history.replaceState(null, "", window.location.pathname.replace("idn.html", "live"));
+  }
+</script>
+</body>
+</html>
