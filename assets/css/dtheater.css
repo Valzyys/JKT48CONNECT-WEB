@@ -1,0 +1,148 @@
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1c1c1e;
+            color: #ffffff;
+        }
+        .container {
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header i {
+            font-size: 24px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin: 0;
+            word-wrap: break-word;
+        }
+
+        /* Banner/Poster Section */
+        .content img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* Details Section */
+        .details h2 {
+            font-size: 28px;
+            margin: 0 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        .details h2 img {
+            width: 40px;
+            height: auto;
+            margin-left: 10px;
+        }
+        .details p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            width: 100%; /* Button panjang setengah layar */
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn.offline {
+            background-color: #007aff;
+            color: #fff;
+        }
+        .btn.offline:hover {
+            background-color: #005bb5;
+        }
+        .btn.online {
+            background-color: #ff3b30;
+            color: #fff;
+        }
+        .btn.online:hover {
+            background-color: #d12324;
+        }
+
+        /* Members Section */
+        .member-list {
+            margin-top: 30px;
+        }
+        .member-list h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .member {
+            width: 100px;
+            text-align: center;
+        }
+        .member img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+        .member span {
+            display: block;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+            .details h2 {
+                font-size: 32px;
+            }
+            .btn {
+                font-size: 18px;
+                padding: 14px 24px;
+            }
+            .member {
+                width: 120px;
+            }
+            .member span {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none;
+            }
+        }
