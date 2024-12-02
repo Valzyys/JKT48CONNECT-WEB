@@ -1,0 +1,111 @@
+<!doctypehtml><html lang=en><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><title>Theater</title><link href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css rel=stylesheet><style>body{background-color:#212121;color:#fff;font-family:Arial,sans-serif;margin:0;padding:0}.container{padding:20px}.header{display:flex;align-items:center;padding:10px 0}.header i{font-size:24px;margin-right:10px}.header h1{font-size:24px;margin:0}.card{background-color:#333;border-radius:10px;display:flex;margin-bottom:20px;padding:10px;opacity:0;transition:opacity .5s ease}.card.show{opacity:1}.card img{border-radius:10px;height:110px;width:90px}.card-content{flex-grow:1;margin-left:10px}.card-content h2{font-size:18px;margin:0}.card-content p{color:#b0b0b0;font-size:14px;margin:5px 0}.card-content .icon-text{align-items:center;display:flex}.card-content .icon-text i{margin-right:5px}.card-content .icon-text .date-icon{color:orange}.card-content .icon-text .member-icon{color:#0f0}.card-content .icon-text .seitansai-icon{color:#ff69b4}.detail{align-items:center;display:flex;justify-content:flex-end}.detail a{color:#fff;text-decoration:none}.pagination{display:flex;justify-content:center;margin-top:20px}.pagination button{background-color:#555;border:none;border-radius:5px;color:#fff;cursor:pointer;margin:0 5px;padding:10px 15px;transition:background-color .3s,transform .2s}.pagination button:hover{background-color:#777;transform:scale(1.05)}.pagination button:disabled{background-color:#888;cursor:not-allowed}.pagination span{align-self:center;margin:0 10px;font-size:16px;color:#fff}</style><div class=container><div class=header><i class="fa-arrow-left fas"></i><h1>Theater</h1></div><div id=theater-cards></div><div class=pagination><button id=prevPage onclick=changePage(-1)>Previous</button> <span id=pageInfo>Page 1 of 288</span> <button id=nextPage onclick=changePage(1)>Next</button></div></div><script>let currentPage = 1;
+        const totalPages = 288; // Based on the total count from the API
+
+        async function fetchTheaterData(page) {
+            try {
+                const response = await fetch(`https://api.crstlnz.my.id/api/theater?page=${page}`);
+                const data = await response.json();
+                const theaterCards = document.getElementById('theater-cards');
+                theaterCards.innerHTML = ''; // Clear existing cards
+
+                const today = new Date();
+
+                // Create an array to hold card elements
+                const cardElements = data.theater.map(theater => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    const img = document.createElement('img');
+                    img.src = theater.poster;
+                    img.alt = `Poster of ${theater.title}`;
+                    
+                    const cardContent = document.createElement('div');
+                    cardContent.className = 'card-content';
+
+                    const title = document.createElement('h2');
+                    title.textContent = theater.title;
+
+                    const dateFormatted = new Date(theater.date).toLocaleDateString('id-ID', {
+                        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                    });
+
+                    const dateP = document.createElement('p');
+                    dateP.className = 'icon-text';
+                    dateP.innerHTML = `<i class="fas fa-calendar-alt date-icon"></i>${dateFormatted}`;
+
+                    const membersP = document.createElement('p');
+                    membersP.className = 'icon-text';
+                    membersP.innerHTML = `<i class="fas fa-users member-icon"></i>${theater.member_count} Member${theater.member_count !== 1 ? 's' : ''}`;
+
+                    cardContent.appendChild(title);
+                    cardContent.appendChild(dateP);
+                    cardContent.appendChild(membersP);
+
+                    if (theater.member_count > 0 && theater.seitansai) {
+                        theater.seitansai.forEach(member => {
+                            const memberP = document.createElement('p');
+                            memberP.className = 'icon-text';
+                            memberP.innerHTML = `<i class="fas fa-birthday-cake seitansai-icon"></i>${member.name}`;
+                            cardContent.appendChild(memberP);
+                        });
+                    }
+
+                    const detailLink = document.createElement('div');
+                    detailLink.className = 'detail';
+
+                    const link = document.createElement('a');
+                    const theaterDate = new Date(theater.date);
+                    
+                    // Check if the theater date is today or in the future
+                    if (theaterDate >= today) {
+                        link.href = `/dtheater?id=${theater.id}`;
+                        link.textContent = 'Detail';
+                    } else {
+                        link.href = `/rtheater?id=${theater.id}`;
+                        link.textContent = 'Detail';
+                    }
+                    detailLink.appendChild(link);
+
+                    card.appendChild(img);
+                    card.appendChild(cardContent);
+                    card.appendChild(detailLink);
+                    return card;
+                });
+
+                // Append cards to theaterCards with fade animation
+                cardElements.forEach((card, index) => {
+                    theaterCards.appendChild(card); // Append card to the container
+                    setTimeout(() => {
+                        card.classList.add('show'); // Trigger fade-in effect
+                    }, index * 100); // Stagger the animation
+                });
+
+                // Update pagination info
+                document.getElementById('pageInfo').textContent = `Page ${page} of ${totalPages}`;
+                
+                // Enable or disable buttons based on current page
+                document.getElementById('prevPage').disabled = page <= 1;
+                document.getElementById('nextPage').disabled = page >= totalPages;
+
+            } catch (error) {
+                console.error('Error fetching theater data:', error);
+            }
+        }
+
+        function changePage(direction) {
+            const newPage = currentPage + direction;
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                fetchTheaterData(currentPage);
+            }
+        }
+
+        // Initial fetch for the first page
+        fetchTheaterData(currentPage);</script>
+<script>
+  // Cek jika URL berisi "index.html" atau "about.html"
+  if (window.location.pathname.endsWith("theater.html")) {
+    // Mengganti URL dari index.html menjadi root domain "/"
+    window.history.replaceState(null, "", window.location.pathname.replace("theater.html", "theater"));
+  }
+</script>
