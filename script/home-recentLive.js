@@ -8,7 +8,7 @@ async function fetchRecentLives() {
 
     if (data.recents && Array.isArray(data.recents)) {
       // Ambil hanya 4 data terbaru
-      const recentLives = data.recents.slice(0, 4);
+      const recentLives = data.recents.slice(0, 5);
 
       recentLives.forEach((live) => {
         const member = live.member;
@@ -43,8 +43,23 @@ async function fetchRecentLives() {
         const cccard = document.createElement('div');
         cccard.className = 'cccard';
 
-        cccard.innerHTML = `
+        // Cek apakah tipe adalah 'idn' dan tambahkan logo IDN
+        let profileImg = `
           <img src="${member.img_alt}" alt="Profile picture of ${member.nickname}" />
+        `;
+
+        if (live.type === 'idn') {
+          profileImg = `
+            <div style="position: relative; display: inline-block;">
+              <img src="${member.img_alt}" alt="Profile picture of ${member.nickname}" />
+              <img src="https://res.cloudinary.com/doig4w6cm/image/fetch/f_auto,q_80/https://upload.wikimedia.org/wikipedia/commons/b/ba/IDN_Live.svg"
+                   alt="IDN Logo" style="position: absolute; bottom: auto; right: 16px; width: auto; height: 15px" />
+            </div>
+          `;
+        }
+
+        cccard.innerHTML = `
+          ${profileImg}
           <div class="cccard-content">
             <h2>${member.nickname}</h2>
             <p class="icon-text">
