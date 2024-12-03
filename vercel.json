@@ -8,6 +8,10 @@
     {
       "source": "/:path*",
       "destination": "/:path*.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/404.html"
     }
   ],
   "redirects": [
