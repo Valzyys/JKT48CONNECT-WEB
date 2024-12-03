@@ -295,7 +295,7 @@ async function lastshow() {
                                 <h3>${stream.name}</h3>
                                 <p id="timeAgo-${index}"></p> <!-- Dynamic time element -->
                             </div>
-                            <button class="beep-button" onclick="window.location.href='/idn.html?stream_url=${encodeURIComponent(streamUrl)}&name=${encodedName}'">
+                            <button class="beep-button" onclick="window.location.href='/live?stream_url=${encodeURIComponent(streamUrl)}&name=${encodedName}'">
                                 <i class="fas fa-video"></i> Watch
                             </button>
                         </div>
