@@ -5,156 +5,109 @@
     <meta name="google-site-verification" content="u73lkCW7VyOB3VyQwZzsvLgfRN_IkWOCFUlvBR8G5WA" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JKT48 Connect</title>
-    <!-- Favicon -->
     <link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
     <style>
         /* General Styles */
         body {
             margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(145deg, #f6d3b1, #e270d1);
+            height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            align-items: flex-end;
+            background: linear-gradient(135deg, #e270d1, #f6d3b1);
+            font-family: Arial, sans-serif;
             overflow: hidden;
         }
 
-        /* Logo */
+        /* Logo Style */
         .logo {
             position: absolute;
-            top: 8%;
+            top: 10%;
             text-align: center;
             width: 100%;
             color: white;
             font-size: 24px;
             font-weight: bold;
-            z-index: 10;
-            animation: fadeIn 1.5s ease-in-out;
         }
 
         .logo img {
-            width: 240px;
+            width: 120px;
             margin-bottom: 0.5em;
         }
 
-        /* Form Container */
+        /* Container Style */
         .container {
             width: 100%;
-            max-width: 400px;
+            height: 50vh;
+            background-color: white;
             padding: 2em;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            animation: slideUp 0.8s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Input Fields */
+        /* Form Group */
         .form-group {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-bottom: 1.5em;
             width: 100%;
+            margin-bottom: 1em;
         }
 
+        /* Form Label */
         label {
             font-size: 0.9em;
-            color: #555;
-            margin-bottom: 0.5em;
-            font-weight: 600;
+            color: gray;
+            margin-bottom: 0.3em;
         }
 
+        /* Input Style */
         input[type="text"], select {
             width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-size: 1em;
-            background: #fafafa;
-            transition: all 0.3s ease;
-            outline: none;
-        }
-
-        input[type="text"]:focus, select:focus {
-            border-color: #e270d1;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(226, 112, 209, 0.2);
-        }
-
-        /* Avatar Display */
-        .oshi-avatar {
-            margin: 1em 0;
-            display: none;
-            width: 120px;
-            height: 120px;
+            padding: 12px;
+            border: 1px solid #ccc;
             border-radius: 10px;
-            object-fit: cover;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
+            box-sizing: border-box;
+            font-size: 1em;
         }
 
-        .oshi-avatar.show {
-            display: block;
-        }
-
-        /* Sign-In Button */
+        /* Button Style */
         .signin-btn {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-size: 1em;
             font-weight: bold;
             background: linear-gradient(135deg, #e270d1, #f36262);
             color: white;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(226, 112, 209, 0.2);
-            transition: all 0.3s ease;
+            transition: background 0.3s ease;
         }
 
         .signin-btn:hover {
-            transform: scale(1.03);
             background: linear-gradient(135deg, #f36262, #e270d1);
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
     </style>
 </head>
 <body>
-    <audio id="bg-sound" src="interface-welcome-131917.mp3"></audio> <!-- Ganti dengan URL suara Anda -->
     <div class="logo">
         <img src="https://files.catbox.moe/osiq36.png" alt="JKT48 Connect Logo">
     </div>
 
     <div class="container">
+        <!-- Button untuk mengisi ulang data jika sudah ada data di Local Storage -->
+        <button id="reset-btn" onclick="resetForm()" style="display: none;">Isi Ulang Data</button>
+
         <form onsubmit="saveData()" action="/home" method="GET">
             <div class="form-group">
                 <label for="nama">Name</label>
-                <input type="text" id="nama" name="nama" placeholder="Enter your name" required>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda" required>
             </div>
 
             <div class="form-group">
@@ -165,97 +118,99 @@
             </div>
 
             <!-- Avatar Oshi -->
-            <img id="oshi-avatar" class="oshi-avatar" src="" alt="Oshi Avatar">
+            <div class="form-group" style="text-align: center;">
+                <img id="oshi-avatar" src="" alt="Oshi Avatar" style="width: 100px; height: 100px; border-radius: 50%; display: none;">
+            </div>
 
             <button type="submit" class="signin-btn">Sign In</button>
         </form>
     </div>
 
+    <!-- Elemen Audio untuk Memutar Suara -->
+    <audio id="background-audio" autoplay>
+        <source src="interface-welcome-131917.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
     <script>
         let members = [];
 
-        // Play background sound on page load
-        window.onload = () => {
-            const audio = document.getElementById("bg-sound");
-            audio.play().catch(error => {
-                console.log("Autoplay blocked, interaction required:", error);
-            });
-        };
-
-        
-        
         // Fungsi untuk menyimpan data ke Local Storage
         function saveData() {
-          const nama = document.getElementById('nama').value;
-          const oshiSelect = document.getElementById('oshi');
-          const oshi = oshiSelect.options[oshiSelect.selectedIndex].text;
-          const avatarUrl = document.getElementById('oshi-avatar').src;
-        
-          localStorage.setItem('nama', nama);
-          localStorage.setItem('oshi', oshi);
-          localStorage.setItem('avatar', avatarUrl); // Simpan URL avatar
+            const nama = document.getElementById('nama').value;
+            const oshiSelect = document.getElementById('oshi');
+            const oshi = oshiSelect.options[oshiSelect.selectedIndex].text;
+            const avatarUrl = document.getElementById('oshi-avatar').src;
+
+            localStorage.setItem('nama', nama);
+            localStorage.setItem('oshi', oshi);
+            localStorage.setItem('avatar', avatarUrl); // Simpan URL avatar
         }
-        
+
         // Fungsi untuk mengambil data Oshi dari API dan mengisinya ke dalam dropdown
         async function fetchOshiNames() {
-          try {
-            const response = await fetch('https://jkt-48-scrape-xi.vercel.app/api/member');
-            const data = await response.json();
-            members = data.members.member; // Array member dari API
-            const oshiSelect = document.getElementById('oshi');
-        
-            members.forEach(member => {
-              const option = document.createElement('option');
-              option.value = member.ava_member; // Gunakan ava_member sebagai value
-              option.textContent = member.nama_member;
-              oshiSelect.appendChild(option);
-            });
-          } catch (error) {
-            console.error("Error fetching Oshi names:", error);
-          }
+            try {
+                const response = await fetch('https://jkt-48-scrape-xi.vercel.app/api/member');
+                const data = await response.json();
+                members = data.members.member; // Array member dari API
+                const oshiSelect = document.getElementById('oshi');
+
+                members.forEach(member => {
+                    const option = document.createElement('option');
+                    option.value = member.ava_member; // Gunakan ava_member sebagai value
+                    option.textContent = member.nama_member;
+                    oshiSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error("Error fetching Oshi names:", error);
+            }
         }
-        
+
         // Fungsi untuk memperbarui avatar saat Oshi dipilih
         function updateAvatar() {
-          const oshiSelect = document.getElementById('oshi');
-          const avatarPath = oshiSelect.value;
-          const avatarUrl = avatarPath ? `https://jkt48.com${avatarPath}` : '';
-          const oshiAvatar = document.getElementById('oshi-avatar');
-        
-          if (avatarUrl) {
-            oshiAvatar.src = avatarUrl;
-            oshiAvatar.style.display = 'block';
-          } else {
-            oshiAvatar.style.display = 'none';
-          }
+            const oshiSelect = document.getElementById('oshi');
+            const avatarPath = oshiSelect.value;
+            const avatarUrl = avatarPath ? `https://jkt48.com${avatarPath}` : '';
+            const oshiAvatar = document.getElementById('oshi-avatar');
+
+            if (avatarUrl) {
+                oshiAvatar.src = avatarUrl;
+                oshiAvatar.style.display = 'block';
+            } else {
+                oshiAvatar.style.display = 'none';
+            }
         }
-        
+
         // Fungsi untuk mengecek apakah data sudah ada di Local Storage dan redirect ke success.html jika ada
         function checkDataAndRedirect() {
-          const urlParams = new URLSearchParams(window.location.search);
-          const reset = urlParams.get('reset');
-        
-          // Jika ada data di Local Storage dan tidak ada parameter reset, redirect ke success.html
-          if (localStorage.getItem('nama') && localStorage.getItem('oshi') && !reset) {
-            window.location.href = "/home";
-          } else if (reset) {
-            // Tampilkan tombol reset jika parameter reset ada
-            document.getElementById("reset-btn").style.display = "block";
-          }
+            const urlParams = new URLSearchParams(window.location.search);
+            const reset = urlParams.get('reset');
+
+            // Jika ada data di Local Storage dan tidak ada parameter reset, redirect ke success.html
+            if (localStorage.getItem('nama') && localStorage.getItem('oshi') && !reset) {
+                window.location.href = "/home";
+            } else if (reset) {
+                // Tampilkan tombol reset jika parameter reset ada
+                document.getElementById("reset-btn").style.display = "block";
+            }
         }
-        
+
         // Fungsi untuk menghapus data dari Local Storage dan memungkinkan pengguna mengisi ulang
         function resetForm() {
-          localStorage.removeItem('nama');
-          localStorage.removeItem('oshi');
-          localStorage.removeItem('avatar');
-          window.location.href = "index.html?reset=true"; // Redirect dengan parameter reset
+            localStorage.removeItem('nama');
+            localStorage.removeItem('oshi');
+            localStorage.removeItem('avatar');
+            window.location.href = "index.html?reset=true"; // Redirect dengan parameter reset
         }
-        
+
         // Panggil fungsi fetchOshiNames dan checkDataAndRedirect ketika halaman dimuat
         document.addEventListener('DOMContentLoaded', () => {
-          fetchOshiNames();
-          checkDataAndRedirect();
+            fetchOshiNames();
+            checkDataAndRedirect();
+
+            // Memastikan audio diputar saat halaman dimuat
+            const audio = document.getElementById('background-audio');
+            audio.play();  // Memulai pemutaran suara
         });
     </script>
 </body>
