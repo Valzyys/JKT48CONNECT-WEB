@@ -8,10 +8,11 @@ async function fetchRecentLives() {
 
     if (data.recents && Array.isArray(data.recents)) {
       // Ambil hanya 4 data terbaru
-      const recentLives = data.recents.slice(0, 5);
+      const recentLives = data.recents.slice(0, 4);
 
       recentLives.forEach((live) => {
         const member = live.member;
+        const liveId = live.data_id;
         const createdAt = new Date(live.created_at); // Waktu live selesai
         const now = new Date(); // Waktu sekarang
 
@@ -72,7 +73,7 @@ async function fetchRecentLives() {
               <i class="fas fa-clock"></i> ${durationText}
             </p>
           </div>
-          <a class="detil" href="https://showroom-live.com/${member.url}" target="_blank">detil</a>
+          <a class="detil" href="detail/${liveId}" target="_blank">detil</a>
         `;
 
         kks.appendChild(cccard);
