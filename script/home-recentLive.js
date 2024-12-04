@@ -73,7 +73,7 @@ async function fetchRecentLives() {
               <i class="fas fa-clock"></i> ${durationText}
             </p>
           </div>
-          <a class="detil" href="detail/${liveId}" target="_blank">detil</a>
+          <a class="detil" href="detail?id=${liveId}" target="_blank">detil</a>
         `;
 
         kks.appendChild(cccard);
