@@ -1,15 +1,14 @@
-// Function to extract the ID from the URL
-function extractIdFromUrl() {
-  const url = window.location.href; // Get current page URL
-  const match = url.match(/detail\/(\d+)/); // Match the pattern "detail/XXXXXXXX"
-  return match ? match[1] : null; // Return the matched ID or null if not found
+// Get URL parameters for the video source and name
+const urlParams = new URLSearchParams(window.location.search);
+const id = urlParams.get('id'); // Mengambil ID dari query string
+
+if (!id) {
+  console.error("Invalid URL or ID not found");
 }
 
 async function fetchEventDetails() {
-  const id = extractIdFromUrl(); // Extract ID from URL
   if (!id) {
-    console.error("Invalid URL or ID not found");
-    return;
+    return; // Hentikan eksekusi jika ID tidak ditemukan
   }
   const apiUrl = `https://api.jkt48connect.my.id/api/recent/${id}?api_key=JKTCONNECT`;
 
@@ -52,10 +51,8 @@ async function fetchEventDetails() {
 }
 
 async function fetchProfileData() {
-  const id = extractIdFromUrl(); // Extract ID from URL
   if (!id) {
-    console.error("Invalid URL or ID not found");
-    return;
+    return; // Hentikan eksekusi jika ID tidak ditemukan
   }
   const apiUrl = `https://api.jkt48connect.my.id/api/recent/${id}?api_key=JKTCONNECT`;
 
@@ -89,10 +86,8 @@ async function fetchProfileData() {
 }
 
 async function fetchGiftData() {
-  const id = extractIdFromUrl(); // Extract ID from URL
   if (!id) {
-    console.error("Invalid URL or ID not found");
-    return;
+    return; // Hentikan eksekusi jika ID tidak ditemukan
   }
   const apiUrl = `https://api.jkt48connect.my.id/api/recent/${id}?api_key=JKTCONNECT`;
 
