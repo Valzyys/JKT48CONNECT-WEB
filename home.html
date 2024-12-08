@@ -344,6 +344,17 @@
     window.history.replaceState(null, "", window.location.pathname.replace("home.html", "home"));
   }
 </script>
+      <script>
+  document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+  });
+
+  document.onkeydown = function (e) {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) {
+          return false;
+      }
+  };
+</script>
 </body>
 
 </html>
