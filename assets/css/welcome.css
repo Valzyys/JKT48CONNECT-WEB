@@ -1,0 +1,153 @@
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: transparent;
+            background-size: cover;
+            background-position: center;
+            transition: background 5s ease;
+        }
+
+        /* Background Image Change */
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px); /* Apply blur effect */
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 1s ease-in-out; /* Smooth fade-in effect */
+        }
+
+        /* Logo */
+        .logo {
+            position: absolute;
+            top: 8%;
+            text-align: center;
+            width: 100%;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 10;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .logo img {
+            width: 240px;
+            margin-bottom: 0.5em;
+            outline: #0015FF;
+        }
+
+        /* Form Container */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 2em;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            animation: slideUp 0.8s ease;
+        }
+
+        /* Input Fields */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 1.5em;
+            width: 100%;
+        }
+
+        label {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 0.5em;
+            font-weight: 600;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            font-size: 1em;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #e270d1;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(226, 112, 209, 0.2);
+        }
+
+        /* Avatar Display */
+        .oshi-avatar {
+            margin: 1em 0;
+            display: none;
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .oshi-avatar.show {
+            display: block;
+        }
+
+        /* Sign-In Button */
+        .signin-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1em;
+            font-weight: bold;
+            background: linear-gradient(135deg, #e270d1, #f36262);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(226, 112, 209, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .signin-btn:hover {
+            transform: scale(1.03);
+            background: linear-gradient(135deg, #f36262, #e270d1);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
