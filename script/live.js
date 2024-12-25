@@ -54,7 +54,7 @@
         }
 
         function openModal(streamUrl, name) {
-            window.location.href = `idn.html?stream_url=${encodeURIComponent(streamUrl)}&name=${encodeURIComponent(name)}`;
+            window.location.href = `live?stream_url=${encodeURIComponent(streamUrl)}&name=${encodeURIComponent(name)}`;
         }
 
         // Load stream data on page load
