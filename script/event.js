@@ -164,7 +164,7 @@ async function fetchTheaterSchedule() {
                             <button class="entrance-button" style="background-color: #34526f; color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 12px; cursor: pointer;" onclick="window.location.href='https://showroom-live.com/r/${schedule.url}'">
                                 Entrance
                             </button>
-                            <button class="detail-button" style="background-color: #1e90ff; color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 12px; cursor: pointer;" onclick="window.location.href='https://live.valzyofc.my.id/dtheater?id=${schedule.id}'">
+                            <button class="detail-button" style="background-color: #1e90ff; color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 12px; cursor: pointer;" onclick="window.location.href='https://www.jkt48connect.my.id/dtheater?id=${schedule.id}'">
                                 <i class="fas fa-info-circle"></i> Detail
                             </button>
                         </div>
