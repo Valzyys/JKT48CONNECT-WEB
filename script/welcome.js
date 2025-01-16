@@ -4,7 +4,7 @@
         // Function to fetch Oshi names from the API
         async function fetchOshiNames() {
             try {
-                const response = await fetch('https://jkt-48-scrape-xi.vercel.app/api/member');
+                const response = await fetch('https://jkt-48-scrape-xi-indol.vercel.app/api/member');
                 const data = await response.json();
                 members = data.members.member;
                 const oshiSelect = document.getElementById('oshi');
