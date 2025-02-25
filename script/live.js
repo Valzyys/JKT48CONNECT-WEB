@@ -2,7 +2,6 @@ const urlParams = new URLSearchParams(window.location.search);
         const videoUrl = urlParams.get('stream_url');
         const videoName = urlParams.get('name');
 
-
         // Set judul sementara
         document.getElementById("breadcrumb-name").textContent = videoName || "Unknown";
         document.getElementById("stream-title").textContent = videoName || "Unknown";
@@ -69,13 +68,16 @@ const urlParams = new URLSearchParams(window.location.search);
         document.addEventListener("DOMContentLoaded", () => {
             const player = new Plyr("#player", {
                 controls: [
-                    "play-large", "play", "mute", "volume", "pip", "fullscreen"
+                    "play-large", "play", "progress", "current-time",
+                    "mute", "volume", "pip", "settings", "fullscreen"
                 ],
-                hideControls: false,
-                autoplay: true,
-                live: {
-                    enabled: true,
-                    reconnect: true
+                settings: ["quality", "speed"],
+            });
+
+            // Pastikan durasi video berjalan maju
+            player.on("timeupdate", event => {
+                if (player.currentTime < 0) {
+                    player.currentTime = 0; // Reset waktu ke 0 jika negatif
                 }
             });
 
@@ -83,15 +85,6 @@ const urlParams = new URLSearchParams(window.location.search);
             const videoContainer = document.getElementById("video-container");
             videoContainer.addEventListener("click", () => {
                 videoContainer.classList.toggle("hide-controls");
-            });
-
-            // Tampilkan durasi yang terus maju
-            player.on("timeupdate", (event) => {
-                const currentTime = Math.floor(event.detail.plyr.currentTime);
-                const hours = Math.floor(currentTime / 3600);
-                const minutes = Math.floor((currentTime % 3600) / 60);
-                const seconds = currentTime % 60;
-                player.elements.currentTime.textContent = `${hours}:${minutes}:${seconds}`;
             });
 
             fetchStreamData();
