@@ -1,98 +1,91 @@
-// Ambil parameter "name" dari URL
-const urlParams = new URLSearchParams(window.location.search);
-const videoName = urlParams.get('name');
+ const pathParts = window.location.pathname.split("/");
+        let videoName = pathParts.length > 2 ? decodeURIComponent(pathParts[2]) : "Trisha";
 
-// Referensi elemen HTML
-const videoElement = document.getElementById('video');
-const videoSource = document.getElementById('videoSource');
-const titleElement = document.getElementById('title');
-const container = document.getElementById('streams');
+        // Set judul sementara
+        document.getElementById("breadcrumb-name").textContent = videoName || "Unknown";
+        document.getElementById("stream-title").textContent = videoName || "Unknown";
 
-// Set judul default
-titleElement.innerHTML = `<i class="fas fa-star"></i> ${videoName || 'Unknown'}`;
+        async function fetchStreamData() {
+            try {
+                const response = await fetch('https://api.crstlnz.my.id/api/now_live?group=jkt48');
+                const data = await response.json();
 
-// Fungsi untuk mengambil data stream dari API
-async function fetchStreamData() {
-    try {
-        const response = await fetch('https://api.crstlnz.my.id/api/now_live?group=jkt48');
-        const data = await response.json();
+                if (!data || data.length === 0) {
+                    document.getElementById("stream-title").textContent = "Tidak ada live saat ini";
+                    return;
+                }
 
-        if (!data || data.length === 0) {
-            container.innerHTML = `<p style="text-align: center;">Tidak ada live saat ini.</p>`;
-            return;
+                // Mencari data live berdasarkan nama
+                const streamData = data.find(stream => stream.name.toLowerCase().includes(videoName.toLowerCase()));
+                if (!streamData) {
+                    document.getElementById("stream-title").textContent = "Nama tidak ditemukan dalam live stream saat ini.";
+                    return;
+                }
+
+                // Format waktu mulai
+                const startDate = new Date(streamData.started_at);
+                const formattedTime = startDate.toLocaleTimeString("id-ID", { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+                // Set data ke HTML
+                document.getElementById("stream-title").textContent = streamData.name;
+                document.getElementById("stream-group").textContent = streamData.type;
+                document.getElementById("start-time").textContent = formattedTime;
+                document.getElementById("stream-quality").textContent = streamData.streaming_url_list.length > 0 ? "Original Quality" : "N/A";
+
+                // Ambil URL streaming kualitas terbaik
+                const bestStream = streamData.streaming_url_list.sort((a, b) => (b.quality || 0) - (a.quality || 0))[0];
+                if (bestStream) {
+                    document.getElementById("videoSource").src = bestStream.url;
+                    document.getElementById("player").load();
+                    document.getElementById("video-container").classList.remove("hidden");
+                }
+
+                // Mulai update viewers setiap detik
+                startRandomViewers();
+            } catch (error) {
+                console.error("Error fetching stream data:", error);
+            }
         }
 
-        // Cari data stream berdasarkan "name"
-        const streamData = data.find(stream => stream.name === videoName);
-        if (!streamData) {
-            container.innerHTML = `<p style="text-align: center;">Nama tidak ditemukan dalam live stream saat ini.</p>`;
-            return;
+        // Fungsi untuk menghasilkan angka random dalam rentang tertentu
+        function getRandomViewers(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        // Ambil URL streaming berkualitas terbaik
-        const streamingUrl = streamData.streaming_url_list.length > 0 
-            ? streamData.streaming_url_list.sort((a, b) => (b.quality || 0) - (a.quality || 0))[0].url
-            : null;
+        // Fungsi untuk memperbarui jumlah viewers setiap detik
+        function startRandomViewers() {
+            let viewers = getRandomViewers(500, 5000);
+            document.getElementById("viewer-count").textContent = `${viewers} viewers`;
 
-        if (!streamingUrl) {
-            container.innerHTML = `<p style="text-align: center;">Tidak ada URL streaming tersedia untuk ${videoName}.</p>`;
-            return;
+            setInterval(() => {
+                viewers += getRandomViewers(-50, 50);
+                viewers = Math.max(500, viewers); // Minimal 500 viewers
+                document.getElementById("viewer-count").textContent = `${viewers} viewers`;
+            }, 1000);
         }
 
-        // Set sumber video dan mulai pemutaran
-        videoSource.src = streamingUrl;
-        videoElement.load();
-    } catch (error) {
-        console.error('Error fetching stream data:', error);
-        container.innerHTML = `<p style="text-align: center;">Gagal memuat data stream.</p>`;
-    }
-}
+        // Inisialisasi Plyr.js
+        document.addEventListener("DOMContentLoaded", () => {
+            const player = new Plyr("#player", {
+                controls: [
+                    "play-large", "play", "progress", "current-time",
+                    "mute", "volume", "pip", "settings", "fullscreen"
+                ],
+                settings: ["quality", "speed"],
+            });
 
-// Fungsi untuk menampilkan daftar live stream
-async function loadLiveStreams() {
-    try {
-        const response = await fetch('https://api.crstlnz.my.id/api/now_live?group=jkt48');
-        const data = await response.json();
+            // Pastikan durasi video berjalan maju
+            player.on("timeupdate", event => {
+                if (player.currentTime < 0) {
+                    player.currentTime = 0; // Reset waktu ke 0 jika negatif
+                }
+            });
 
-        if (!data || data.length === 0) {
-            container.innerHTML = `<p style="text-align: center;">Tidak ada live saat ini.</p>`;
-            return;
-        }
+            // Sembunyikan kontrol saat klik video
+            const videoContainer = document.getElementById("video-container");
+            videoContainer.addEventListener("click", () => {
+                videoContainer.classList.toggle("hide-controls");
+            });
 
-        container.innerHTML = data.map(stream => {
-            const streamingUrl = stream.streaming_url_list.length > 0 
-                ? stream.streaming_url_list.sort((a, b) => (b.quality || 0) - (a.quality || 0))[0].url
-                : `https://www.showroom-live.com/${stream.url_key}`;
-
-            return `
-                <div class="live-item">
-                    <img src="${stream.img}" alt="${stream.name}">
-                    <div class="info">
-                        <p>Name: ${stream.name}</p>
-                        <p>Live: ${stream.type}</p>
-                    </div>
-                    <div class="buttons">
-                        <button onclick="window.open('${streamingUrl}', '_blank')">
-                              <i class="fas fa-expand"></i> Fullscreen
-                        </button>
-                        <button onclick="openModal('${stream.name}')">
-                             <i class="fas fa-play"></i> Open
-                        </button>
-                    </div>
-                </div>
-            `;
-        }).join('');
-    } catch (error) {
-        console.error('Error fetching stream data:', error);
-        container.innerHTML = `<p style="text-align: center;">Gagal memuat data stream.</p>`;
-    }
-}
-
-// Fungsi untuk membuka modal dengan hanya menggunakan "name"
-function openModal(name) {
-    window.location.href = `live?name=${encodeURIComponent(name)}`;
-}
-
-// Jalankan saat halaman dimuat
-fetchStreamData();
-loadLiveStreams();
+            fetchStreamData();
+        });
