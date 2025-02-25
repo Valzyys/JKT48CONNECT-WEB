@@ -64,14 +64,16 @@ const urlParams = new URLSearchParams(window.location.search);
             }, 1000);
         }
 
-        // Inisialisasi Plyr.js
+              // Inisialisasi Plyr.js
         document.addEventListener("DOMContentLoaded", () => {
             const player = new Plyr("#player", {
                 controls: [
                     "play-large", "play", "progress", "current-time",
-                    "mute", "volume", "pip", "settings", "fullscreen"
+                    "mute", "volume", "pip", "settings", "fullscreen",
+                    "captions" // Menambahkan kontrol captions
                 ],
                 settings: ["quality", "speed"],
+                captions: { active: true, language: "id" } // Mengaktifkan captions Bahasa Indonesia secara default
             });
 
             // Pastikan durasi video berjalan maju
