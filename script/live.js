@@ -27,8 +27,7 @@ const urlParams = new URLSearchParams(window.location.search);
         const formattedTime = startDate.toLocaleString("id-ID", {
             timeZone: "Asia/Jakarta",
             hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
+            minute: '2-digit'
         }) + " WIB"; // Tambahkan "WIB"
 
         // Set data ke HTML
