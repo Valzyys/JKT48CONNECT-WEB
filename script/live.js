@@ -69,11 +69,9 @@ const urlParams = new URLSearchParams(window.location.search);
             const player = new Plyr("#player", {
                 controls: [
                     "play-large", "play", "progress", "current-time",
-                    "mute", "volume", "pip", "settings", "fullscreen",
-                    "captions" // Menambahkan kontrol captions
+                    "mute", "volume", "pip", "settings", "fullscreen" // Menambahkan kontrol captions
                 ],
-                settings: ["quality", "speed"],
-                captions: { active: true, language: "id" } // Mengaktifkan captions Bahasa Indonesia secara default
+                settings: ["quality", "speed"] // Mengaktifkan captions Bahasa Indonesia secara default
             });
 
             // Pastikan durasi video berjalan maju
