@@ -6,6 +6,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/live/:member",
+      "destination": "/live.html"
+    },
+    {
       "source": "/:path*",
       "destination": "/:path*.html"
     },
