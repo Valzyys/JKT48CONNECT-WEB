@@ -132,7 +132,7 @@
 
         function openModal(streamUrl, name) {
           // Redirect to the video player page with the stream URL and name as query parameters
-          window.location.href = `live?stream_url=${encodeURIComponent(streamUrl)}&name=${encodeURIComponent(name)}`;
+          window.location.href = `live/${encodeURIComponent(name)}`;
         }
 
         function closeModal() {
