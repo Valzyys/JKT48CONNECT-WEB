@@ -7,33 +7,70 @@
     <meta name="description" content="Platform terbaik untuk melihat live stream JKT48. Selalu terupdate dengan jadwal dan informasi terkini.">
     <link rel="icon" href="https://pomf2.lain.la/f/30fzjyy9.jpg" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="assets/css/idn.css">
+    <link rel="stylesheet" href="assets/css/idn.css">    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Plyr.js -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+
+    <style>
+        .video-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .hide-controls .plyr__controls {
+            display: none !important;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <div class="max-w-2xl mx-auto p-4">
+        <!-- Breadcrumb -->
+        <nav class="text-sm text-gray-500 mb-4">
+            <a href="#" class="hover:underline">Home</a> &gt;
+            <a href="#" class="hover:underline">Live</a> &gt;
+            <span id="breadcrumb-name" class="text-gray-700">Loading...</span>
+        </nav>
 
-    <!-- Video Content -->
-    <div class="content">
-        <h2 id="title"><i class="fas fa-star"></i> Judul Live</h2>
-        <hr/>
-        <video id="video" controls autoplay>
-            <source id="videoSource" src="-" type="application/vnd.apple.mpegurl">
-            Browser Anda tidak mendukung pemutaran video ini.
-        </video>
-        <hr/>
+        <!-- Title -->
+        <h1 id="stream-title" class="text-2xl font-bold text-pink-500 mb-1">Loading...</h1>
+        <p id="stream-group" class="text-gray-500 mb-4"></p>
+
+        <!-- Video Player -->
+        <div id="video-container" class="video-container rounded-lg overflow-hidden mb-4 hidden">
+            <video id="player" class="w-full" autoplay muted playsinline>
+                <source id="videoSource" src="" type="application/x-mpegURL"/>
+            </video>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="bg-white rounded-lg shadow p-4 space-y-4">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-eye text-pink-500"></i>
+                <div>
+                    <p class="text-sm text-gray-500">Viewers</p>
+                    <p id="viewer-count" class="text-lg font-semibold">Loading...</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-clock text-pink-500"></i>
+                <div>
+                    <p class="text-sm text-gray-500">Started</p>
+                    <p id="start-time" class="text-lg font-semibold">Loading...</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-signal text-pink-500"></i>
+                <div>
+                    <p class="text-sm text-gray-500">Quality</p>
+                    <p id="stream-quality" class="text-lg font-semibold">Loading...</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Live List Section -->
-    <div class="container" id="streams">
-        <!-- Dynamic content will load here -->
-    </div>
-
-<script src="./script/live.js"></script>
-<script>
-  // Cek jika URL berisi "index.html" atau "about.html"
-  if (window.location.pathname.endsWith("idn.html")) {
-    // Mengganti URL dari index.html menjadi root domain "/"
-    window.history.replaceState(null, "", window.location.pathname.replace("idn.html", "live"));
-  }
-</script>
+<script src="script/live.js">script)</script>
 </body>
 </html>
