@@ -1,5 +1,6 @@
- const pathParts = window.location.pathname.split("/");
-        let videoName = pathParts.length > 2 ? decodeURIComponent(pathParts[2]) : "Trisha";
+const urlParams = new URLSearchParams(window.location.search);
+        const videoUrl = urlParams.get('stream_url');
+        const videoName = urlParams.get('name');
 
         // Set judul sementara
         document.getElementById("breadcrumb-name").textContent = videoName || "Unknown";
